@@ -1,0 +1,52 @@
+# Permissions:
+# spinheads.command.main - Can use /spinheads
+# spinheads.create - Can use /spinheads create
+# spinheads.delete - Can use /spinheads delete
+
+# The change in yaw each tick
+# Must be in decimal form
+spin_rate: 5.0
+
+heads:
+  example_1:
+    player: "Mas281"
+    hologram:
+    - "&a&lExample Hologram"
+    - "&e1"
+    commands:
+    - "[message] &aExample 1"
+    - "[console] say Example 1"
+    - "[player] me says Example 1"
+  example_2:
+    player: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGVlYmI4YjAzY2QyN2QzNDM1ZTExNTYxNmI4ZWQzNWRjYjQyN2FmNWIwYjFjYzUyNmQzMjY1YTcyZDQ5M2UifX19"
+    hologram:
+    - "&a&lExample Hologram"
+    - "&e2"
+    commands:
+    - "[message] &aExample 2"
+    - "[console] say Example 2"
+    - "[player] me says Example 2"
+
+messages:
+  no_console: "&cOnly players can use this command"
+  no_permission: "&cYou don't have permission"
+
+  command_main_usage:
+  - "&aSpinHeads Commands:"
+  - "&e/spinheads create <head>"
+  - "&e/spinheads list <radius>"
+  - "&e/spinheads delete <radius>"
+
+  command_create_usage: "&cUsage: /spinheads create <head>"
+
+  command_list_usage: "&cUsage: /spinheads list <radius>"
+  command_list_header: "&aThere are &e{count} &aholgrams near you"
+  command_list_format: "&e#{number} - &a{head_type}"
+
+  command_delete_usage: "&cUsage: /spinheads delete <radius>"
+  command_delete_executed: "&aDeleted &e{count} &aheads"
+
+  invalid_number: "&cThat is not a valid number"
+  bad_number: "&cNumber must be at least 1"
+
+  invalid_head: "&cThat is not a valid head"

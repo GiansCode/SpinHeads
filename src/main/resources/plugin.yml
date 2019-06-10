@@ -1,0 +1,11 @@
+name: SpinHeads
+version: 1.0
+author: Mas281
+
+main: io.samdev.spinheads.SpinHeads
+
+load: POSTWORLD
+
+commands:
+  spinheads:
+    aliases: [sh]
