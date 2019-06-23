@@ -2,10 +2,8 @@ package io.samdev.spinheads.head;
 
 import io.samdev.spinheads.SpinHeads;
 import io.samdev.spinheads.util.Chat;
-import io.samdev.spinheads.util.CommandType;
 import io.samdev.spinheads.util.UtilEntity;
 import io.samdev.spinheads.util.UtilServer;
-import io.samdev.spinheads.util.UtilString;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
@@ -13,7 +11,6 @@ import org.bukkit.entity.Entity;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public class HeadManager
@@ -70,9 +67,9 @@ public class HeadManager
             List<String> hologram = headSection.getStringList("hologram");
             hologram.replaceAll(Chat::colour);
 
-            Map<CommandType, String> commands = UtilString.parseCommands(headSection.getStringList("commands"));
+            List<String> actions = headSection.getStringList("actions");
 
-            heads.add(new HeadData(head, player, hologram, commands));
+            heads.add(new HeadData(head, player, hologram, actions));
         }
     }
 

@@ -1,9 +1,10 @@
 name: SpinHeads
-version: 1.0
+version: ${project.version}
 author: Mas281
 
+depend: [ActionUtil]
 main: io.samdev.spinheads.SpinHeads
-
+api-version: 1.14
 load: POSTWORLD
 
 commands:

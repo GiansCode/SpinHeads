@@ -3,8 +3,8 @@ package io.samdev.spinheads.head;
 import com.google.common.collect.Lists;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import io.samdev.actionutil.ActionUtil;
 import io.samdev.spinheads.data.TrackedHead;
-import io.samdev.spinheads.util.CommandType;
 import io.samdev.spinheads.util.UtilLocation;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -16,25 +16,22 @@ import org.bukkit.inventory.meta.SkullMeta;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 import java.util.UUID;
 
 public class HeadData
 {
     private final String name;
-
     private final String head;
-
     private final List<String> hologramLines;
+    private final List<String> actions;
 
-    private final Map<CommandType, String> commands;
-
-    HeadData(String name, String head, List<String> hologramLines, Map<CommandType, String> commands)
+    HeadData(String name, String head, List<String> hologramLines, List<String> actions)
     {
         this.name = name;
         this.head = head;
         this.hologramLines = hologramLines;
-        this.commands = commands;
+        this.actions = actions;
     }
 
     public String getName()
@@ -87,8 +84,7 @@ public class HeadData
 
     private ItemStack toStack()
     {
-        ItemStack stack = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
-
+        ItemStack stack = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
         SkullMeta meta = (SkullMeta) stack.getItemMeta();
 
         if (head.length() <= 16)
@@ -101,7 +97,6 @@ public class HeadData
         }
 
         stack.setItemMeta(meta);
-
         return stack;
     }
 
@@ -134,8 +129,8 @@ public class HeadData
         catch (NoSuchFieldException ignored) {}
     }
 
-    public void executeCommands(Player player)
+    void executeCommands(Player player)
     {
-        commands.forEach((type, command) -> type.execute(player, command));
+        ActionUtil.executeActions(player, actions);
     }
 }

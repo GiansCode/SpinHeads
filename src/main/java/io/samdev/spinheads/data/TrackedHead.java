@@ -13,13 +13,9 @@ import java.util.UUID;
 public class TrackedHead
 {
     private final UUID uuid;
-
     private final HeadData headData;
-
     private final Location location;
-
     private final UUID headEntity;
-
     private final List<UUID> hologramEntities;
 
     public TrackedHead(UUID uuid, HeadData headData, Location location, UUID headEntity, List<UUID> hologramEntities)

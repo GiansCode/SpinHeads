@@ -13,19 +13,17 @@ heads:
     hologram:
     - "&a&lExample Hologram"
     - "&e1"
-    commands:
-    - "[message] &aExample 1"
-    - "[console] say Example 1"
-    - "[player] me says Example 1"
+    actions:
+    - "[MESSAGE] &aExample 1"
+    - "[CONSOLECOMMAND] say Example 1"
   example_2:
     player: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGVlYmI4YjAzY2QyN2QzNDM1ZTExNTYxNmI4ZWQzNWRjYjQyN2FmNWIwYjFjYzUyNmQzMjY1YTcyZDQ5M2UifX19"
     hologram:
     - "&a&lExample Hologram"
     - "&e2"
-    commands:
-    - "[message] &aExample 2"
-    - "[console] say Example 2"
-    - "[player] me says Example 2"
+    actions:
+    - "[MESSAGE] &aExample 2"
+    - "[CONSOLECOMMAND] say Example 2"
 
 messages:
   no_console: "&cOnly players can use this command"
