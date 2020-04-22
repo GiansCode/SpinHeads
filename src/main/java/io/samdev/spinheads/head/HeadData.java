@@ -3,7 +3,7 @@ package io.samdev.spinheads.head;
 import com.google.common.collect.Lists;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-import io.samdev.actionutil.ActionUtil;
+import io.samdev.spinheads.SpinHeads;
 import io.samdev.spinheads.data.TrackedHead;
 import io.samdev.spinheads.util.UtilLocation;
 import org.bukkit.Location;
@@ -16,7 +16,6 @@ import org.bukkit.inventory.meta.SkullMeta;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.UUID;
 
 public class HeadData
@@ -84,7 +83,7 @@ public class HeadData
 
     private ItemStack toStack()
     {
-        ItemStack stack = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
+        ItemStack stack = new ItemStack(Material.PLAYER_HEAD, 1);
         SkullMeta meta = (SkullMeta) stack.getItemMeta();
 
         if (head.length() <= 16)
@@ -131,6 +130,6 @@ public class HeadData
 
     void executeCommands(Player player)
     {
-        ActionUtil.executeActions(player, actions);
+        SpinHeads.getPlugin(SpinHeads.class).getActionUtil().executeActions(player, actions);
     }
 }

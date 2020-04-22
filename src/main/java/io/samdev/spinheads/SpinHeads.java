@@ -1,5 +1,6 @@
 package io.samdev.spinheads;
 
+import io.samdev.actionutil.ActionUtil;
 import io.samdev.spinheads.command.MainCommand;
 import io.samdev.spinheads.data.DataManager;
 import io.samdev.spinheads.head.HeadManager;
@@ -8,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class SpinHeads extends JavaPlugin
 {
+    private ActionUtil actionUtil;
     private HeadManager headManager;
     private DataManager dataManager;
 
@@ -16,6 +18,8 @@ public class SpinHeads extends JavaPlugin
     {
         preInit();
 
+        actionUtil = ActionUtil.init(this);
+        
         headManager = new HeadManager(this);
         dataManager = new DataManager(this);
 
@@ -42,5 +46,9 @@ public class SpinHeads extends JavaPlugin
     public HeadManager getHeadManager()
     {
         return headManager;
+    }
+
+    public ActionUtil getActionUtil() {
+        return actionUtil;
     }
 }
