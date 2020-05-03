@@ -8,6 +8,7 @@ public enum Permission
     COMMAND_CREATE("command.create"),
     COMMAND_LIST("command.list"),
     COMMAND_DELETE("command.delete"),
+    COMMAND_RELOAD("command.reload")
     ;
 
     private final String node;

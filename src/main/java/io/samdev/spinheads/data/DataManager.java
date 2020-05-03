@@ -33,7 +33,7 @@ public class DataManager
     }
 
     private final Set<TrackedHead> trackedHeads = new HashSet<>();
-
+    
     public void addHead(TrackedHead head)
     {
         trackedHeads.add(head);
@@ -48,6 +48,8 @@ public class DataManager
             .map(UUID::toString)
             .collect(toList())
         );
+        
+        save();
     }
 
     public Set<TrackedHead> getTrackedHeads()
@@ -114,7 +116,7 @@ public class DataManager
     private File file;
     private YamlConfiguration config;
 
-    private void loadDataFile()
+    public void loadDataFile()
     {
         file = new File(plugin.getDataFolder(), "data.yml");
 
@@ -140,6 +142,8 @@ public class DataManager
     @SuppressWarnings("unchecked")
     private void loadTrackedHeads()
     {
+        trackedHeads.clear();
+        
         ConfigurationSection headsSection = config.getConfigurationSection("heads");
 
         if (headsSection == null)

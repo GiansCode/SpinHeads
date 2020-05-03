@@ -5,6 +5,7 @@ import io.samdev.spinheads.data.TrackedHead;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class InteractListener implements Listener
@@ -30,5 +31,12 @@ public class InteractListener implements Listener
         {
             trackedHead.getHeadData().executeCommands(event.getPlayer());
         }
+    }
+    
+    @EventHandler
+    public void onBlockBreak(BlockBreakEvent event) {
+        TrackedHead trackedHead = plugin.getDataManager().getTrackedHead(event.getBlock().getLocation());
+        if (trackedHead != null)
+            event.setCancelled(true);
     }
 }

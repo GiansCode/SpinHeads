@@ -44,6 +44,8 @@ messages:
   command_delete_usage: "&cUsage: /spinheads delete <radius>"
   command_delete_executed: "&aDeleted &e{count} &aheads"
 
+  command_reload_executed: "&aPlugin reloaded"
+
   invalid_number: "&cThat is not a valid number"
   bad_number: "&cNumber must be at least 1"
 

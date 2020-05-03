@@ -54,8 +54,10 @@ public class HeadManager
         });
     }
 
-    private void loadHeadData()
+    public void loadHeadData()
     {
+        heads.clear();
+        
         ConfigurationSection section = plugin.getConfig().getConfigurationSection("heads");
 
         for (String head : section.getKeys(false))

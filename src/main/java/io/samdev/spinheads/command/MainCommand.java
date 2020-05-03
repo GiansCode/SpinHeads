@@ -65,6 +65,11 @@ public class MainCommand implements CommandExecutor
                 }
                 break;
 
+            case "reload":
+                if (Permission.COMMAND_RELOAD.has(sender))
+                    handleReload(sender);
+                break;
+                
             default:
                 sendUsage(sender);
                 break;
@@ -146,6 +151,15 @@ public class MainCommand implements CommandExecutor
         Message.COMMAND_DELETE_EXECUTED.send(player, "count", count);
     }
 
+    private void handleReload(CommandSender sender) {
+        plugin.reloadConfig();
+        plugin.getHeadManager().loadHeadData();
+        plugin.getDataManager().save();
+        plugin.getDataManager().loadDataFile();
+        
+        Message.COMMAND_RELOAD_EXECUTED.send(sender);
+    }
+    
     private int parseInt(String input, Player player)
     {
         int value;
